@@ -12,7 +12,8 @@ class HomePage extends StatelessWidget {
   Future<dynamic> getTeams() async {
     var url = Uri.parse('https://www.balldontlie.io/api/v1/teams');
     var response = await http.get(url);
-    var jsonData = jsonDecode(response.body);
+    var jsonData = jsonDecode(response
+        .body); // response.body is a String , and jsonDecode takes the string and returns the corresponding JSON object.
     //print(jsonData['meta']);
     for (var team in jsonData['data']) {
       teams.add(Team(
