@@ -16,20 +16,24 @@ class HomePage extends StatelessWidget {
     //print(jsonData['meta']);
     for (var team in jsonData['data']) {
       teams.add(Team(
-          abbreviation: team['abbreviation'], fullName: team['full_name']));
+          abbreviation: team['abbreviation'],
+          fullName: team['full_name'],
+          city: team['city']));
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    getTeams();
     return Scaffold(
         body: FutureBuilder(
       future: getTeams(),
       builder: (context, snapshot) => ListView.builder(
           itemCount: teams.length,
           itemBuilder: (context, index) => Card(
-                child: Text(teams[index].abbreviation),
+                child: ListTile(
+                    title: Text(teams[index].abbreviation),
+                    subtitle: Text(teams[index].city),
+                    trailing: Text(teams[index].fullName)),
               )),
     ));
   }
