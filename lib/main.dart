@@ -6,6 +6,8 @@ void main() {
   runApp(const MyApp());
 }
 
+//GET https://www.balldontlie.io/api/v1/teams Api address
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      home: HomePage(),
     );
   }
 }
